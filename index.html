@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopEase - Discover quality lifestyle electronics, timeless fashion, premium footwear, and home luxury at unbeatable Indian rupee prices.">
+  <meta name="keywords" content="e-commerce, online shopping, electronics, fashion, shoes, watches, home living, accessories, discounts, india">
+  <meta name="author" content="ShopEase Team">
+  <title>ShopEase | Modern Online Shopping - Discover Quality Products</title>
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. Top Announcement Bar
+       ====================================================================== -->
+  <aside class="top-bar" aria-label="Special Offers Bar">
+    <div class="container">
+      <div class="top-bar-highlight">
+        <span class="top-bar-badge">FESTIVE SALE</span>
+        <span>Get Extra 15% OFF using code <strong>SHOPENEW</strong> at checkout!</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="#deals"><i class="fa-solid fa-bolt"></i> Flash Deals</a>
+        <span>|</span>
+        <a href="#contact"><i class="fa-solid fa-headset"></i> 24/7 Support</a>
+        <span>|</span>
+        <span><i class="fa-solid fa-indian-rupee-sign"></i> INR (₹)</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       2. Site Header & Navbar
+       ====================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="ShopEase Home">
+        <div class="logo-icon">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <span>Shop<span class="accent">Ease</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#deals" class="nav-link">Deals</a>
+        <a href="#bestsellers" class="nav-link">Best Sellers</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input 
+            type="text" 
+            id="headerSearchInput" 
+            placeholder="Search electronics, fashion, shoes..." 
+            oninput="handleSearch(this.value)"
+            aria-label="Search products"
+          >
+          <button 
+            id="searchClearBtn" 
+            class="search-clear-btn" 
+            onclick="clearSearch()" 
+            aria-label="Clear search input"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Header Action Icons -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <button 
+          class="action-btn wishlist-btn" 
+          onclick="openWishlistDrawer()" 
+          title="View Wishlist"
+          aria-label="Wishlist"
+        >
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </button>
+
+        <!-- Shopping Cart Button -->
+        <button 
+          class="action-btn cart-btn" 
+          onclick="openCartDrawer()" 
+          title="View Cart"
+          aria-label="Shopping Cart"
+        >
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count" id="cartBadge">0</span>
+        </button>
+
+        <!-- Mobile Toggle Button -->
+        <button 
+          class="mobile-toggle" 
+          onclick="toggleMobileMenu()" 
+          aria-label="Open Mobile Menu"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Slide-out Panel -->
+  <aside class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <a href="#hero" class="brand-logo" onclick="toggleMobileMenu()">
+        <div class="logo-icon">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <span>Shop<span class="accent">Ease</span></span>
+      </a>
+      <button class="drawer-close-btn" onclick="toggleMobileMenu()" aria-label="Close Mobile Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#hero" onclick="toggleMobileMenu()">Home</a>
+      <a href="#shop" onclick="toggleMobileMenu()">Shop All Products</a>
+      <a href="#categories" onclick="toggleMobileMenu()">Browse Categories</a>
+      <a href="#deals" onclick="toggleMobileMenu()">Flash Deals</a>
+      <a href="#bestsellers" onclick="toggleMobileMenu()">Best Sellers</a>
+      <a href="#reviews" onclick="toggleMobileMenu()">Customer Reviews</a>
+      <a href="#contact" onclick="toggleMobileMenu()">Contact & Help</a>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       3. Hero Section
+       ====================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="container hero-grid">
+      <!-- Hero Copy -->
+      <div class="hero-copy">
+        <div class="hero-badge-wrap">
+          <span class="hero-badge-pill">FESTIVE PROMO</span>
+          <span>Up to 60% OFF Across All Departments</span>
+        </div>
+
+        <h1 class="hero-title">
+          Discover Your Next <br>
+          <span class="gradient-text">Favorite</span> Product
+        </h1>
+
+        <p class="hero-subtitle">
+          Experience premium online shopping with handpicked electronics, luxury apparel, athletic sneakers, and home upgrades. Unmatched quality at honest Indian rupee prices.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-primary" onclick="scrollToSection('shop')">
+            <i class="fa-solid fa-bag-shopping"></i> Shop Now
+          </button>
+          <button class="btn btn-outline" onclick="scrollToSection('categories')">
+            <i class="fa-solid fa-layer-group"></i> Explore Categories
+          </button>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-number">14.2K+</span>
+            <span class="metric-label">Happy Shoppers</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">4.9 / 5</span>
+            <span class="metric-label">Verified Ratings</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-number">100%</span>
+            <span class="metric-label">Genuine Guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card & Floating Badges -->
+      <div class="hero-visual">
+        <div class="hero-card-main">
+          <img 
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80" 
+            alt="SonicWave Pro Headphones Showcase" 
+            class="hero-card-img"
+          >
+          <div class="hero-card-content">
+            <div class="hero-card-meta">
+              <span class="hero-card-tag">Featured Tech</span>
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i>
+                <span>4.8 (342)</span>
+              </div>
+            </div>
+            <h3 class="hero-card-title">SonicWave Pro ANC Wireless</h3>
+            <div class="hero-card-price">₹3,499 <span style="font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; font-weight: 500;">₹5,999</span></div>
+          </div>
+        </div>
+
+        <!-- Floating Badge: Active Noise Cancelling -->
+        <div class="floating-badge floating-badge-top">
+          <i class="fa-solid fa-headphones" style="color: var(--primary);"></i>
+          <div>
+            <div class="title">Active Noise Cancellation</div>
+            <div class="sub">35dB Hybrid Isolation</div>
+          </div>
+        </div>
+
+        <!-- Floating Badge: Free Express Shipping -->
+        <div class="floating-badge floating-badge-bottom">
+          <i class="fa-solid fa-truck-fast" style="color: var(--secondary);"></i>
+          <div>
+            <div class="title">Free Express Delivery</div>
+            <div class="sub">Orders Above ₹999</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       4. Trust Badges / Perks Grid
+       ====================================================================== -->
+  <section class="trust-section" aria-label="Customer Benefits">
+    <div class="container trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <div class="trust-info">
+          <h4>Free & Fast Shipping</h4>
+          <p>Orders above ₹999 delivered in 2-3 business days across India.</p>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="trust-info">
+          <h4>100% Secure Checkout</h4>
+          <p>256-bit SSL encrypted mock gateway supporting Cards & UPI.</p>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+        </div>
+        <div class="trust-info">
+          <h4>7-Day Easy Returns</h4>
+          <p>Hassle-free, doorstep pickup for exchanges and refunds.</p>
+        </div>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div class="trust-info">
+          <h4>24/7 Dedicated Support</h4>
+          <p>Expert customer care via email, phone, and live assistant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       5. Product Categories
+       ====================================================================== -->
+  <section class="section-padding" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curated Collections</span>
+        <h2 class="section-title">Explore Popular Categories</h2>
+        <p class="section-desc">Click any category card to instantly filter our catalog and discover trending items tailored to your lifestyle.</p>
+      </div>
+
+      <div class="category-grid">
+        <!-- Electronics -->
+        <div class="category-card" data-category="Electronics" onclick="filterByCategory('Electronics')">
+          <div class="category-icon-box">
+            <i class="fa-solid fa-laptop"></i>
+          </div>
+          <h3 class="category-name">Electronics</h3>
+          <span class="category-count">4 Products</span>
+        </div>
+
+        <!-- Fashion -->
+        <div class="category-card" data-category="Fashion" onclick="filterByCategory('Fashion')">
+          <div class="category-icon-box">
+            <i class="fa-solid fa-shirt"></i>
+          </div>
+          <h3 class="category-name">Fashion</h3>
+          <span class="category-count">3 Products</span>
+        </div>
+
+        <!-- Shoes -->
+        <div class="category-card" data-category="Shoes" onclick="filterByCategory('Shoes')">
+          <div class="category-icon-box">
+            <i class="fa-solid fa-shoe-prints"></i>
+          </div>
+          <h3 class="category-name">Shoes</h3>
+          <span class="category-count">3 Products</span>
+        </div>
+
+        <!-- Watches -->
+        <div class="category-card" data-category="Watches" onclick="filterByCategory('Watches')">
+          <div class="category-icon-box">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h3 class="category-name">Watches</h3>
+          <span class="category-count">2 Products</span>
+        </div>
+
+        <!-- Home & Living -->
+        <div class="category-card" data-category="Home & Living" onclick="filterByCategory('Home & Living')">
+          <div class="category-icon-box">
+            <i class="fa-solid fa-couch"></i>
+          </div>
+          <h3 class="category-name">Home & Living</h3>
+          <span class="category-count">2 Products</span>
+        </div>
+
+        <!-- Accessories -->
+        <div class="category-card" data-category="Accessories" onclick="filterByCategory('Accessories')">
+          <div class="category-icon-box">
+            <i class="fa-solid fa-glasses"></i>
+          </div>
+          <h3 class="category-name">Accessories</h3>
+          <span class="category-count">2 Products</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       6. Flash Deals Banner with Live Countdown Timer
+       ====================================================================== -->
+  <section class="container" id="deals">
+    <div class="flash-deals-banner">
+      <div class="flash-inner">
+        <div class="flash-info">
+          <span class="flash-pill"><i class="fa-solid fa-fire"></i> Limited Time Offer</span>
+          <h2 class="flash-title">Flash Deals of the Day</h2>
+          <p class="flash-desc">
+            Huge savings up to 60% off select tech and footwear. Apply code <strong>FLASH15</strong> in your cart drawer for an extra 15% discount.
+          </p>
+          <div style="margin-top: 18px;">
+            <button class="btn btn-primary" onclick="copyCoupon('FLASH15')" style="background: #ffffff; color: var(--primary);">
+              <i class="fa-regular fa-copy"></i> Copy Code: FLASH15
+            </button>
+          </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-timer" aria-label="Flash sale ends in">
+          <div class="time-box">
+            <span class="time-number" id="timerHours">08</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <span class="time-separator">:</span>
+          <div class="time-box">
+            <span class="time-number" id="timerMinutes">45</span>
+            <span class="time-label">Mins</span>
+          </div>
+          <span class="time-separator">:</span>
+          <div class="time-box">
+            <span class="time-number" id="timerSeconds">30</span>
+            <span class="time-label">Secs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       7. Main Product Catalog & Filter Toolbar
+       ====================================================================== -->
+  <section class="section-padding" id="shop" style="padding-top: 20px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Store</span>
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-desc">Browse our complete collection of genuine, top-rated products with real-time search, filter, and sorting.</p>
+      </div>
+
+      <!-- Controls Toolbar -->
+      <div class="catalog-toolbar">
+        <!-- Category Filter Pills -->
+        <div class="filter-categories-pills">
+          <button class="filter-pill active" data-category="all" onclick="filterByCategory('all')">All Products</button>
+          <button class="filter-pill" data-category="Electronics" onclick="filterByCategory('Electronics')">Electronics</button>
+          <button class="filter-pill" data-category="Fashion" onclick="filterByCategory('Fashion')">Fashion</button>
+          <button class="filter-pill" data-category="Shoes" onclick="filterByCategory('Shoes')">Shoes</button>
+          <button class="filter-pill" data-category="Watches" onclick="filterByCategory('Watches')">Watches</button>
+          <button class="filter-pill" data-category="Home & Living" onclick="filterByCategory('Home & Living')">Home & Living</button>
+          <button class="filter-pill" data-category="Accessories" onclick="filterByCategory('Accessories')">Accessories</button>
+        </div>
+
+        <!-- Secondary Controls: Sort, Rating, Price Slider, Reset -->
+        <div class="filter-controls-row">
+          <div class="filter-group-left">
+            <!-- Sort dropdown -->
+            <div class="filter-item">
+              <label for="sortSelect"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort by:</label>
+              <select id="sortSelect" class="filter-select" onchange="handleSort(this.value)">
+                <option value="default">Featured / Default</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="discount">Biggest Discount</option>
+                <option value="name-asc">Name: A to Z</option>
+              </select>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="filter-item">
+              <label for="ratingSelect"><i class="fa-solid fa-star" style="color: var(--accent-gold);"></i> Rating:</label>
+              <select id="ratingSelect" class="filter-select" onchange="handleRatingChange(this.value)">
+                <option value="0">All Ratings</option>
+                <option value="4.8">4.8+ Stars</option>
+                <option value="4.6">4.6+ Stars</option>
+                <option value="4.0">4.0+ Stars</option>
+              </select>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="filter-item price-slider-wrap">
+              <label for="priceSlider">Max Price:</label>
+              <input 
+                type="range" 
+                id="priceSlider" 
+                min="1000" 
+                max="20000" 
+                step="500" 
+                value="20000" 
+                oninput="handlePriceChange(this.value)"
+              >
+              <span id="priceValBadge" class="price-val-badge">₹20,000</span>
+            </div>
+          </div>
+
+          <div class="filter-group-right">
+            <span class="results-count" id="resultsCount">Showing 16 of 16 products</span>
+            <button class="btn-reset" onclick="resetAllFilters()" title="Reset all applied filters">
+              <i class="fa-solid fa-arrows-rotate"></i> Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Grid (Dynamically Rendered by script.js) -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       8. Best Sellers Promo Banner
+       ====================================================================== -->
+  <section class="promo-strip-section" id="bestsellers">
+    <div class="container">
+      <div class="promo-card">
+        <div class="promo-content">
+          <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 700; text-transform: uppercase;">
+            Exclusive Student & New User Deal
+          </span>
+          <h3 style="margin-top: 12px;">Save Big On Your First Order with ShopEase</h3>
+          <p>
+            Join over 14,000 discerning shoppers across India. Enjoy premium quality products, verified customer reviews, and swift doorstep shipping.
+          </p>
+          <div class="coupon-box">
+            <span>Use Code:</span>
+            <span class="coupon-code">SHOPENEW</span>
+            <button class="btn-copy-coupon" onclick="copyCoupon('SHOPENEW')">
+              <i class="fa-regular fa-copy"></i> Copy Code
+            </button>
+          </div>
+        </div>
+        <div class="promo-visual">
+          <img 
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" 
+            alt="Best seller sneaker promotional showcase"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       9. Customer Reviews & Testimonials
+       ====================================================================== -->
+  <section class="section-padding" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-desc">Real stories from verified buyers across India who love shopping on ShopEase.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "I ordered the SonicWave Pro headphones and the sound stage is phenomenal! The active noise cancellation cuts out office noise effortlessly. Delivered to Bengaluru in just 2 days."
+          </p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Priya Sharma" class="author-avatar">
+            <div>
+              <div class="author-name">Priya Sharma</div>
+              <div class="author-meta">
+                <span>Bengaluru, KA</span> • <span class="verified-badge"><i class="fa-solid fa-certificate"></i> Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "The ErgoComfort chair completely resolved my lower back strain during long coding sessions. Solid build quality, easy assembly, and super breathable mesh. Worth every single rupee!"
+          </p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Rahul Verma" class="author-avatar">
+            <div>
+              <div class="author-name">Rahul Verma</div>
+              <div class="author-meta">
+                <span>Pune, MH</span> • <span class="verified-badge"><i class="fa-solid fa-certificate"></i> Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "The ChronoMaster watch looks twice as expensive as it actually is! The sapphire glass and weighty steel links make it look stunning on formal shirts. Fast shipping and premium packaging."
+          </p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Ananya Deshmukh" class="author-avatar">
+            <div>
+              <div class="author-name">Ananya Deshmukh</div>
+              <div class="author-meta">
+                <span>Mumbai, MH</span> • <span class="verified-badge"><i class="fa-solid fa-certificate"></i> Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       10. Newsletter Subscription Section
+       ====================================================================== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-icon">
+          <i class="fa-regular fa-envelope-open"></i>
+        </div>
+        <h3>Join the ShopEase VIP Club</h3>
+        <p>Subscribe to receive secret flash discounts, weekly new arrivals, and special coupon codes directly in your inbox.</p>
+
+        <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+          <input 
+            type="email" 
+            id="newsletterEmail" 
+            class="newsletter-input" 
+            placeholder="Enter your email address..." 
+            required
+            aria-label="Your email address"
+          >
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Subscribe Now
+          </button>
+        </form>
+        <span class="newsletter-note">🔒 No spam ever. You can unsubscribe anytime with one click.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       11. Footer
+       ====================================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col footer-brand">
+          <a href="#hero" class="brand-logo">
+            <div class="logo-icon">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+            <span>Shop<span class="accent">Ease</span></span>
+          </a>
+          <p class="footer-desc">
+            ShopEase is your trusted modern destination for curated lifestyle electronics, designer fashion, athletic footwear, and home luxury. Designed with passion for seamless online shopping.
+          </p>
+          <div class="social-links">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Explore ShopEase</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#shop">Shop All Products</a></li>
+            <li><a href="#categories">Browse Categories</a></li>
+            <li><a href="#deals">Flash Deals & Coupons</a></li>
+            <li><a href="#bestsellers">Best Sellers</a></li>
+            <li><a href="#reviews">Verified Reviews</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="showToast('Demo link: Order tracking is available on demo orders.', 'info')">Track Your Order</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Demo link: 7-day hassle-free return policy active.', 'info')">Returns & Exchanges</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Demo link: Shipping rates are free above ₹999.', 'info')">Shipping Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Demo link: All demo products include 1-year warranty.', 'info')">Warranty & Guarantees</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Demo link: ShopEase FAQs and Help Center.', 'info')">Help & Support FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <ul class="contact-info-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>104, Tech Park Boulevard, Indiranagar, Bengaluru, KA 560038, India</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 (Mon - Sat, 9am - 7pm IST)</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>support@shopease-demo.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="copyright">
+            © 2026 ShopEase Inc. Built for educational demonstration & portfolio. All rights reserved.
+          </div>
+          <div class="payment-methods">
+            <span>Guaranteed Safe Checkout:</span>
+            <i class="fa-brands fa-cc-visa" title="Visa"></i>
+            <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+            <i class="fa-solid fa-credit-card" title="RuPay & NetBanking"></i>
+            <i class="fa-brands fa-google-pay" title="Google Pay"></i>
+            <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       12. Drawers: Slide-out Cart & Slide-out Wishlist
+       ====================================================================== -->
+  <!-- Backdrop for Drawers & Mobile Nav -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Cart Slide-out Drawer -->
+  <aside class="drawer-panel" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="drawer-header">
+      <div class="drawer-header-title">
+        <i class="fa-solid fa-cart-shopping" style="color: var(--primary);"></i>
+        <span>Shopping Cart <span id="cartDrawerCount">(0)</span></span>
+      </div>
+      <button class="drawer-close-btn" onclick="closeCartDrawer()" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="shipping-progress-box">
+      <div id="shippingNotice">Add ₹999 to get FREE Express Delivery!</div>
+      <div class="shipping-bar-bg">
+        <div class="shipping-bar-fill" id="shippingBarFill"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Body -->
+    <div class="drawer-body" id="cartDrawerBody">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- Cart Footer & Summary -->
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <div class="coupon-apply-row">
+        <input type="text" id="cartCouponInput" placeholder="Promo code (e.g. FLASH15)">
+        <button onclick="applyCouponCode()">Apply</button>
+      </div>
+
+      <div class="cart-summary-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotalVal">₹0</span>
+      </div>
+      <div class="cart-summary-row" id="cartDiscountRow" style="display: none; color: var(--success); font-weight: 700;">
+        <span>Coupon Discount:</span>
+        <span id="cartDiscountVal">-₹0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Estimated Delivery:</span>
+        <span id="cartShippingVal">FREE</span>
+      </div>
+      <div class="cart-summary-row total">
+        <span>Grand Total:</span>
+        <span id="cartGrandTotalVal" style="color: var(--primary);">₹0</span>
+      </div>
+
+      <div class="drawer-actions-stack">
+        <button class="btn-checkout" onclick="openCheckoutModal()">
+          <i class="fa-solid fa-lock"></i> Proceed to Checkout (Demo)
+        </button>
+        <button class="btn-clear-cart" onclick="clearCart()">
+          <i class="fa-solid fa-trash-can"></i> Clear Shopping Cart
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Wishlist Slide-out Drawer -->
+  <aside class="drawer-panel" id="wishlistDrawer" aria-label="Wishlist Drawer">
+    <div class="drawer-header">
+      <div class="drawer-header-title">
+        <i class="fa-solid fa-heart" style="color: var(--danger);"></i>
+        <span>My Wishlist <span id="wishlistDrawerCount">(0)</span></span>
+      </div>
+      <button class="drawer-close-btn" onclick="closeWishlistDrawer()" aria-label="Close Wishlist">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-body" id="wishlistDrawerBody">
+      <!-- Injected dynamically by script.js -->
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       13. Modals: Quick View, Demo Checkout & Order Confirmation
+       ====================================================================== -->
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="quickViewContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-box checkout-modal-box">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()" aria-label="Close checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="margin-bottom: 20px;">
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--primary); margin-right: 6px;"></i>
+          Secure Checkout (Demo Mode)
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Complete your demo order simulation. No credit card or real payment is needed!
+        </p>
+      </div>
+
+      <div class="checkout-banner-notice">
+        <i class="fa-solid fa-circle-info" style="font-size: 1.1rem;"></i>
+        <span><strong>Portfolio Demo:</strong> This form simulates real checkout workflows. No financial transactions take place.</span>
+      </div>
+
+      <form id="checkoutForm" onsubmit="handleCheckoutSubmit(event)">
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">
+          1. Shipping Address
+        </h4>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="checkoutName">Full Name *</label>
+            <input type="text" id="checkoutName" class="form-input" placeholder="e.g. Rahul Sharma" value="Rahul Sharma" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutEmail">Email Address *</label>
+            <input type="email" id="checkoutEmail" class="form-input" placeholder="rahul@example.com" value="rahul@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutPhone">Phone Number *</label>
+            <input type="tel" id="checkoutPhone" class="form-input" placeholder="+91 98765 43210" value="+91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkoutPincode">Pincode *</label>
+            <input type="text" id="checkoutPincode" class="form-input" placeholder="560038" value="560038" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="checkoutAddress">Street Address *</label>
+            <input type="text" id="checkoutAddress" class="form-input" placeholder="Flat / House No, Apartment, Street" value="Flat 402, Green Glen Layout, Bellandur" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="checkoutCity">City & State *</label>
+            <input type="text" id="checkoutCity" class="form-input" placeholder="Bengaluru, Karnataka" value="Bengaluru, Karnataka" required>
+          </div>
+        </div>
+
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">
+          2. Simulated Payment Method
+        </h4>
+
+        <div class="payment-options-grid">
+          <div class="payment-option-card selected" onclick="selectPaymentMethod(this, 'upi')">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>UPI / QR Code</span>
+          </div>
+          <div class="payment-option-card" onclick="selectPaymentMethod(this, 'card')">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Card (Demo)</span>
+          </div>
+          <div class="payment-option-card" onclick="selectPaymentMethod(this, 'cod')">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <span>Cash on Delivery</span>
+          </div>
+        </div>
+
+        <!-- Order Summary Breakdown in Modal -->
+        <div style="background: var(--bg-alt); padding: 14px 18px; border-radius: var(--radius-md); margin-bottom: 24px; font-size: 0.88rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="color: var(--text-body);">Cart Subtotal:</span>
+            <span id="checkoutSubtotal" style="font-weight: 700;">₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="color: var(--text-body);">Shipping Fee:</span>
+            <span id="checkoutShipping" style="font-weight: 700;">FREE</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="color: var(--text-body);">Discount Applied:</span>
+            <span id="checkoutDiscount" style="font-weight: 700; color: var(--success);">-₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 800; border-top: 1px dashed var(--border-light); padding-top: 8px; margin-top: 6px;">
+            <span>Final Total:</span>
+            <span id="checkoutTotal" style="color: var(--primary);">₹0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1.05rem;">
+          <i class="fa-solid fa-check-circle"></i> Place Demo Order Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Success Receipt Modal -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-box order-success-box">
+      <div class="order-success-icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3>Order Confirmed!</h3>
+      <p style="color: var(--text-body); margin-bottom: 16px;">
+        Thank you, <strong id="orderCustomerName">Customer</strong>! Your demo purchase has been successfully placed.
+      </p>
+
+      <div>Order Tracking Reference:</div>
+      <div class="order-id-badge" id="orderIdSpan">SE-123456</div>
+
+      <div style="background: var(--bg-alt); padding: 14px; border-radius: var(--radius-md); margin-bottom: 24px; font-size: 0.9rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+          <span>Simulated Amount Paid:</span>
+          <strong id="orderTotalSpan" style="color: var(--primary);">₹0</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span>Estimated Delivery Date:</span>
+          <strong>3 Business Days</strong>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="closeOrderSuccessModal(); scrollToSection('shop');" style="width: 100%;">
+        <i class="fa-solid fa-bag-shopping"></i> Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       14. Floating Toast Notification Container
+       ====================================================================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
